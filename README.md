@@ -13,9 +13,10 @@ UK National Rail Developers web site</a>.
 
 Install using the Manage Palette menu option, or manually run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm i --save node-red-contrib-uk-national-rail
+        npm i --save dceejay/node-red-contrib-uk-national-rail
 
-### Usage
+
+### Usage
 
 **Outputs**
 
