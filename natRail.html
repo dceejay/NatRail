@@ -9,8 +9,8 @@
         <input type="text" id="node-input-scode" data-i18n="[placeholder]common.label.scode">
     </div>
     <div class="form-row">
-        <label for="node-input-cscode"><i class="fa fa-train"></i>Calling Station Code</label>
-        <input type="text" id="node-input-cscode" data-i18n="[placeholder]common.label.cscode">
+        <label for="node-input-destscode"><i class="fa fa-train"></i>Destination Station Code</label>
+        <input type="text" id="node-input-destscode" data-i18n="[placeholder]common.label.destscode">
     </div>
     <div class="form-row">
         <label for="node-input-apikey"><i class="fa fa-key"></i> API Key</label>
@@ -37,6 +37,8 @@
     <dl class="message-properties">
         <dt>station <span class="property-type">string</span></dt>
         <dd>a station code string that can be used if one is not specified in the configuration.</code>.</dd>
+        <dt>destination station <span class="property-type">string</span></dt>
+        <dd>a station code string to filter objects by destination code.</code>.</dd>
     </dl>
     <h3>Details</h3>
     <p>To use this node you will require an API key from the <a target="_new" href="http://realtime.nationalrail.co.uk/OpenLDBWSRegistration/">
@@ -50,7 +52,7 @@
         defaults: {
             name: {value:""},
             scode: {value:"WIN",required:true},
-            cscode: {value:"",required:false},
+            destscode: {value:"",required:false},
             property: {value:"payload",required:true}
         },
         credentials: {

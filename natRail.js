@@ -7,7 +7,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,n);
         this.property = n.property||"payload";
         this.scode = n.scode || "WIN";
-        this.cscode = n.cscode || "";
+        this.destscode = n.destscode || "";
         var credentials = this.credentials;
         if ((credentials) && (credentials.hasOwnProperty("apikey"))) { this.apikey = credentials.apikey; }
         else { this.error("No API key set"); }
@@ -18,10 +18,10 @@ module.exports = function(RED) {
             var value = RED.util.getMessageProperty(msg,node.property);
             if (value !== undefined) {
                 var stationcode = node.scode || msg.station;
-                var callingstationcode = node.cscode || msg.calling_station;
+                var destinationstationcode = node.destscode || msg.destination_station;
                 var options = {};
                 if (callingstationcode) {
-                  options.filter = callingstationcode;
+                  options.destination = destinationstationcode;
                 }
                 rail.getDepartureBoard(stationcode, options, function(err,result) {
                     if (err) {
