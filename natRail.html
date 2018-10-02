@@ -9,6 +9,10 @@
         <input type="text" id="node-input-scode" data-i18n="[placeholder]common.label.scode">
     </div>
     <div class="form-row">
+        <label for="node-input-cscode"><i class="fa fa-train"></i>Calling Station Code</label>
+        <input type="text" id="node-input-cscode" data-i18n="[placeholder]common.label.cscode">
+    </div>
+    <div class="form-row">
         <label for="node-input-apikey"><i class="fa fa-key"></i> API Key</label>
         <input type="text" id="node-input-apikey">
     </div>
@@ -46,6 +50,7 @@
         defaults: {
             name: {value:""},
             scode: {value:"WIN",required:true},
+            cscode: {value:"",required:false},
             property: {value:"payload",required:true}
         },
         credentials: {

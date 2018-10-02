@@ -7,6 +7,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,n);
         this.property = n.property||"payload";
         this.scode = n.scode || "WIN";
+        this.cscode = n.cscode || "";
         var credentials = this.credentials;
         if ((credentials) && (credentials.hasOwnProperty("apikey"))) { this.apikey = credentials.apikey; }
         else { this.error("No API key set"); }
@@ -17,7 +18,12 @@ module.exports = function(RED) {
             var value = RED.util.getMessageProperty(msg,node.property);
             if (value !== undefined) {
                 var stationcode = node.scode || msg.station;
-                rail.getDepartureBoard(stationcode, {}, function(err,result) {
+                var callingstationcode = node.cscode || msg.calling_station;
+                var options = {};
+                if (callingstationcode) {
+                  options.filter = callingstationcode;
+                }
+                rail.getDepartureBoard(stationcode, options, function(err,result) {
                     if (err) {
                         if (err.statusCode === 401) {
                             node.error("Unauthorised - Is API key correct ?",msg);
