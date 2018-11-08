@@ -20,7 +20,7 @@ module.exports = function(RED) {
                 var stationcode = node.scode || msg.station;
                 var destinationstationcode = node.destscode || msg.destination_station;
                 var options = {};
-                if (callingstationcode) {
+                if (destinationstationcode) {
                   options.destination = destinationstationcode;
                 }
                 rail.getDepartureBoard(stationcode, options, function(err,result) {
