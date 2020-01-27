@@ -8,9 +8,15 @@ module.exports = function(RED) {
         this.property = n.property||"payload";
         this.scode = n.scode || "WIN";
         this.destscode = n.destscode || "";
-        var credentials = this.credentials;
-        if ((credentials) && (credentials.hasOwnProperty("apikey"))) { this.apikey = credentials.apikey; }
-        else { this.error("No API key set"); }
+
+        // grab API key from configuration node
+        this.api = RED.nodes.getNode(n.api);
+        if (this.api) {
+            this.apikey = this.api.credentials.apiKey;
+        } else {
+            this.error("No API key set");
+        }
+
         var rail = new Rail(this.apikey);
         var node = this;
 
@@ -48,7 +54,5 @@ module.exports = function(RED) {
             else { node.send(msg); }
         });
     }
-    RED.nodes.registerType("natrail",NatRailNode, {
-        credentials: { apikey: {type:"text"} }
-    });
+    RED.nodes.registerType("natrail",NatRailNode);
 }

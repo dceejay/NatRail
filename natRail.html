@@ -13,12 +13,12 @@
         <input type="text" id="node-input-destscode" data-i18n="[placeholder]common.label.destscode">
     </div>
     <div class="form-row">
-        <label for="node-input-apikey"><i class="fa fa-key"></i> API Key</label>
-        <input type="text" id="node-input-apikey">
+        <label for="node-input-api"><i class="fa fa-key"></i> API Key</label>
+        <input type="text" id="node-input-api">
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
     </div>
     <div class="form-tips">For a list of valid Station Codes see
     <a href="http://www.nationalrail.co.uk/static/documents/content/station_codes.csv">this link</a>.</div>
@@ -53,10 +53,8 @@
             name: {value:""},
             scode: {value:"WIN",required:true},
             destscode: {value:"",required:false},
-            property: {value:"payload",required:true}
-        },
-        credentials: {
-            apikey: {type:"text"}
+            property: {value:"payload",required:true},
+            api: {value:"", type: "natRail-config", required:true}
         },
         inputs:1,
         outputs:1,

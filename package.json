@@ -18,7 +18,8 @@
     ],
     "node-red": {
         "nodes": {
-            "natrail": "natRail.js"
+            "natrail": "natRail.js",
+            "natRail-config": "natRail-config.js"
         }
     },
     "author": {
