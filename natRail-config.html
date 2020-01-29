@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    RED.nodes.registerType('natRail-config',{
+        category: 'config',
+        defaults: {
+            name: {value:""}
+        },
+        credentials: {
+            apiKey: {type:"text", required: true}
+        },
+        label: function() {
+            return this.name || "National Rail API Key";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="natRail-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-apiKey"><i class="fa fa-key"></i> API Key</label>
+        <input type="text" id="node-config-input-apiKey">
+    </div>
+</script>
