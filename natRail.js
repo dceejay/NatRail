@@ -6,7 +6,7 @@ module.exports = function(RED) {
     function NatRailNode(n) {
         RED.nodes.createNode(this,n);
         this.property = n.property||"payload";
-        this.scode = n.scode || "WIN";
+        this.scode = n.scode || "";
         this.destscode = n.destscode || "";
 
         // grab API key from configuration node
@@ -27,7 +27,7 @@ module.exports = function(RED) {
                 var destinationstationcode = node.destscode || msg.destination_station;
                 var options = {};
                 if (destinationstationcode) {
-                  options.destination = destinationstationcode;
+                    options.destination = destinationstationcode;
                 }
                 rail.getDepartureBoard(stationcode, options, function(err,result) {
                     if (err) {

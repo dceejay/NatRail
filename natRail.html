@@ -1,5 +1,5 @@
 
-<script type="text/x-red" data-template-name="natrail">
+<script type="text/html" data-template-name="natrail">
     <div class="form-row">
         <label for="node-input-property"><i class="fa fa-ellipsis-h"></i> <span data-i18n="node-red:common.label.property"></span></label>
         <input type="text" id="node-input-property" style="width:70%;"/>
@@ -24,7 +24,7 @@
     <a href="http://www.nationalrail.co.uk/static/documents/content/station_codes.csv">this link</a>.</div>
 </script>
 
-<script type="text/x-red" data-help-name="natrail">
+<script type="text/html" data-help-name="natrail">
     <p>Gets a list of upcoming train departures for the specified UK rail station.</p>
     <h3>Outputs</h3>
     <dl class="message-properties">
@@ -51,8 +51,8 @@
         color:"#E0E9F1",
         defaults: {
             name: {value:""},
-            scode: {value:"WIN",required:true},
-            destscode: {value:"",required:false},
+            scode: {value:"WIN"},
+            destscode: {value:""},
             property: {value:"payload",required:true},
             api: {value:"", type: "natRail-config", required:true}
         },
